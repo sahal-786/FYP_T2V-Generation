@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Video Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        textarea {
+            width: 80%;
+            margin: 0 auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #processing-block {
+            text-align: center;
+            display: none;
+            margin-top: 20px;
+        }
+        #progress-bar {
+            width: 50%;
+            background-color: #4CAF50;
+            height: 20px;
+            margin: 0 auto;
+        }
+        #video-container {
+            text-align: center;
+            display: none;
+            margin-top: 20px;
+        }
+        #generated-video {
+            width: 80%;
+            margin: 0 auto;
+        }
+        #download-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        #download-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text to Video Generator</h1>
+    <form id="generate-form">
+        <label for="text-prompt">Enter your text prompt:</label><br>
+        <textarea id="text-prompt" name="text_prompt" rows="4" cols="50"></textarea><br>
+        <button type="submit" id="generate-button">Generate Video</button>
+    </form>
+
+    <div id="processing-block">
+        <p>Processing...</p>
+        <div id="progress-bar"></div>
+    </div>
+
+    <div id="video-container">
+        <h2>Generated Video</h2>
+        <video id="generated-video" controls></video>
+        <br>
+        <a href="#" id="download-button" download>Download Video</a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
